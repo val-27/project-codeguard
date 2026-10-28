@@ -1,0 +1,1801 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="Project CodeGuard is an AI model-agnostic security framework and ruleset that embeds secure-by-default practices into AI coding workflows (generation and review). It ships core security rules, translators for popular coding agents, and validators to test rule compliance.">
+      
+      
+        <meta name="author" content="Cisco AI-enabled Security Engineering, Security and Trust">
+      
+      
+        <link rel="canonical" href="https://project-codeguard.org/getting-started/">
+      
+      
+        <link rel="prev" href="..">
+      
+      
+        <link rel="next" href="../install-paths/">
+      
+      
+        
+      
+      
+      <link rel="icon" href="../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.7">
+    
+    
+      
+        <title>Getting Started - Project CodeGuard</title>
+      
+    
+    
+      <link rel="stylesheet" href="../assets/stylesheets/main.ec1eaa64.min.css">
+      
+        
+        <link rel="stylesheet" href="../assets/stylesheets/palette.ab4e12ef.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Inter:300,300i,400,400i,700,700i%7CJetBrains+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Inter";--md-code-font:"JetBrains Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="blue" data-md-color-accent="cyan">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#getting-started" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href=".." title="Project CodeGuard" class="md-header__button md-logo" aria-label="Project CodeGuard" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Project CodeGuard
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Getting Started
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: light)" data-md-color-scheme="default" data-md-color-primary="blue" data-md-color-accent="cyan"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a4 4 0 0 0-4 4 4 4 0 0 0 4 4 4 4 0 0 0 4-4 4 4 0 0 0-4-4m0 10a6 6 0 0 1-6-6 6 6 0 0 1 6-6 6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: dark)" data-md-color-scheme="slate" data-md-color-primary="blue" data-md-color-accent="cyan"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 18c-.89 0-1.74-.2-2.5-.55C11.56 16.5 13 14.42 13 12s-1.44-4.5-3.5-5.45C10.26 6.2 11.11 6 12 6a6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+        <div class="md-search__suggest" data-md-component="search-suggest"></div>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/cosai-oasis/project-codeguard" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"/></svg>
+  </div>
+  <div class="md-source__repository">
+    cosai-oasis/project-codeguard
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href=".." title="Project CodeGuard" class="md-nav__button md-logo" aria-label="Project CodeGuard" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    Project CodeGuard
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/cosai-oasis/project-codeguard" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"/></svg>
+  </div>
+  <div class="md-source__repository">
+    cosai-oasis/project-codeguard
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href=".." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Home
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Getting Started
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Getting Started
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#project-codeguard-introduction-video" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Project CodeGuard Introduction Video
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#prerequisites" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Prerequisites
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#installation" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Installation
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Installation">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#option-1-install-pre-built-bundles-recommended" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Option 1: Install Pre-built Bundles (Recommended)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#option-2-build-from-source" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Option 2: Build from Source
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#core-vs-owasp-sources" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Core vs OWASP Sources
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#rule-types-always-on-vs-glob-scoped" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Rule Types: Always-On vs Glob-Scoped
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#keeping-vendored-rules-updated-optional" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Keeping Vendored Rules Updated (Optional)
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Keeping Vendored Rules Updated (Optional)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#supported-formats" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Supported Formats
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#setup" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Setup
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#verify-installation" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Verify Installation
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#whats-included" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        What's Included
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="What&#39;s Included">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#core-security-rules" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Core Security Rules
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#platform-specific-rules" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Platform-Specific Rules
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#devops-supply-chain" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        DevOps &amp; Supply Chain
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#testing-the-integration" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Testing the Integration
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#next-steps" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Next Steps
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#troubleshooting" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Troubleshooting
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Troubleshooting">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#rules-not-working" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Rules Not Working
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#performance-impact" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Performance Impact
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#getting-help" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Getting Help
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../install-paths/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Choosing an Install Path
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../personas/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    CoSAI Personas
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../claude-code-skill-plugin/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Claude Code Plugin
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../codex-skill-plugin/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Codex Plugin
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../mcp-server/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    MCP Server
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../codeguard-reviewer/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    CodeGuard Reviewer
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../skills/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Skills
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../custom-rules/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Custom Rules
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../results/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Evaluation Results
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../adr/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Project Decisions
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../faq/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    FAQ
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#project-codeguard-introduction-video" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Project CodeGuard Introduction Video
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#prerequisites" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Prerequisites
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#installation" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Installation
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Installation">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#option-1-install-pre-built-bundles-recommended" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Option 1: Install Pre-built Bundles (Recommended)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#option-2-build-from-source" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Option 2: Build from Source
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#core-vs-owasp-sources" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Core vs OWASP Sources
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#rule-types-always-on-vs-glob-scoped" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Rule Types: Always-On vs Glob-Scoped
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#keeping-vendored-rules-updated-optional" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Keeping Vendored Rules Updated (Optional)
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Keeping Vendored Rules Updated (Optional)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#supported-formats" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Supported Formats
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#setup" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Setup
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#verify-installation" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Verify Installation
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#whats-included" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        What's Included
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="What&#39;s Included">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#core-security-rules" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Core Security Rules
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#platform-specific-rules" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Platform-Specific Rules
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#devops-supply-chain" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        DevOps &amp; Supply Chain
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#testing-the-integration" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Testing the Integration
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#next-steps" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Next Steps
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#troubleshooting" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Troubleshooting
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Troubleshooting">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#rules-not-working" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Rules Not Working
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#performance-impact" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Performance Impact
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#getting-help" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Getting Help
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+  
+    <a href="https://github.com/cosai-oasis/project-codeguard/edit/main/docs/getting-started.md" title="Edit this page" class="md-content__button md-icon" rel="edit">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M10 20H6V4h7v5h5v3.1l2-2V8l-6-6H6c-1.1 0-2 .9-2 2v16c0 1.1.9 2 2 2h4zm10.2-7c.1 0 .3.1.4.2l1.3 1.3c.2.2.2.6 0 .8l-1 1-2.1-2.1 1-1c.1-.1.2-.2.4-.2m0 3.9L14.1 23H12v-2.1l6.1-6.1z"/></svg>
+    </a>
+  
+  
+
+
+<h1 id="getting-started">Getting Started</h1>
+<p>Get up and running with Project CodeGuard in just a few steps.</p>
+<h2 id="project-codeguard-introduction-video">Project CodeGuard Introduction Video</h2>
+<p><a href="https://www.youtube.com/watch?v=O03MDxUWjsE">This video</a> introduces Project CodeGuard and includes several demos on how to use it during code generation and code review with Claude Code, Codex, and other coding agents.</p>
+<div style="position: relative; width: 100%; padding-bottom: 56.25%; margin: 2em 0; border-radius: 8px; overflow: hidden; box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);">
+  <iframe style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;" src="https://www.youtube.com/embed/O03MDxUWjsE" title="Project CodeGuard Introduction Video and Demos" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+</div>
+
+<h2 id="prerequisites">Prerequisites</h2>
+<p>Before you begin, familiarize yourself with how rules work in your AI coding tool:</p>
+<div class="tabbed-set tabbed-alternate" data-tabs="1:8"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><input id="__tabbed_1_2" name="__tabbed_1" type="radio" /><input id="__tabbed_1_3" name="__tabbed_1" type="radio" /><input id="__tabbed_1_4" name="__tabbed_1" type="radio" /><input id="__tabbed_1_5" name="__tabbed_1" type="radio" /><input id="__tabbed_1_6" name="__tabbed_1" type="radio" /><input id="__tabbed_1_7" name="__tabbed_1" type="radio" /><input id="__tabbed_1_8" name="__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="__tabbed_1_1">Cursor</label><label for="__tabbed_1_2">Windsurf</label><label for="__tabbed_1_3">Devin</label><label for="__tabbed_1_4">GitHub Copilot</label><label for="__tabbed_1_5">Antigravity</label><label for="__tabbed_1_6">OpenCode</label><label for="__tabbed_1_7">OpenClaw</label><label for="__tabbed_1_8">Hermes</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
+<p>Cursor uses <code>.cursor/rules</code> for rule configuration.</p>
+<p><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="m19 2-5 4.5v11l5-4.5zM6.5 5C4.55 5 2.45 5.4 1 6.5v14.66c0 .25.25.5.5.5.1 0 .15-.07.25-.07 1.35-.65 3.3-1.09 4.75-1.09 1.95 0 4.05.4 5.5 1.5 1.35-.85 3.8-1.5 5.5-1.5 1.65 0 3.35.31 4.75 1.06.1.05.15.03.25.03.25 0 .5-.25.5-.5V6.5c-.6-.45-1.25-.75-2-1V19c-1.1-.35-2.3-.5-3.5-.5-1.7 0-4.15.65-5.5 1.5V6.5C10.55 5.4 8.45 5 6.5 5"/></svg></span> <a href="https://docs.cursor.com/en/context/rules">Cursor Rules Documentation</a></p>
+</div>
+<div class="tabbed-block">
+<p>Windsurf uses <code>.windsurf/rules</code> for rule configuration.</p>
+<p><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="m19 2-5 4.5v11l5-4.5zM6.5 5C4.55 5 2.45 5.4 1 6.5v14.66c0 .25.25.5.5.5.1 0 .15-.07.25-.07 1.35-.65 3.3-1.09 4.75-1.09 1.95 0 4.05.4 5.5 1.5 1.35-.85 3.8-1.5 5.5-1.5 1.65 0 3.35.31 4.75 1.06.1.05.15.03.25.03.25 0 .5-.25.5-.5V6.5c-.6-.45-1.25-.75-2-1V19c-1.1-.35-2.3-.5-3.5-.5-1.7 0-4.15.65-5.5 1.5V6.5C10.55 5.4 8.45 5 6.5 5"/></svg></span> <a href="https://docs.windsurf.com/windsurf/cascade/memories#rules">Windsurf Rules Documentation</a></p>
+</div>
+<div class="tabbed-block">
+<p>Devin discovers Agent Skills in <code>.devin/skills</code> and other supported
+Agent Skills directories.</p>
+<p><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="m19 2-5 4.5v11l5-4.5zM6.5 5C4.55 5 2.45 5.4 1 6.5v14.66c0 .25.25.5.5.5.1 0 .15-.07.25-.07 1.35-.65 3.3-1.09 4.75-1.09 1.95 0 4.05.4 5.5 1.5 1.35-.85 3.8-1.5 5.5-1.5 1.65 0 3.35.31 4.75 1.06.1.05.15.03.25.03.25 0 .5-.25.5-.5V6.5c-.6-.45-1.25-.75-2-1V19c-1.1-.35-2.3-.5-3.5-.5-1.7 0-4.15.65-5.5 1.5V6.5C10.55 5.4 8.45 5 6.5 5"/></svg></span> <a href="https://docs.devin.ai/product-guides/skills">Devin Skills Documentation</a></p>
+</div>
+<div class="tabbed-block">
+<p>GitHub Copilot uses <code>.github/instructions</code> for rule configuration.</p>
+<p><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="m19 2-5 4.5v11l5-4.5zM6.5 5C4.55 5 2.45 5.4 1 6.5v14.66c0 .25.25.5.5.5.1 0 .15-.07.25-.07 1.35-.65 3.3-1.09 4.75-1.09 1.95 0 4.05.4 5.5 1.5 1.35-.85 3.8-1.5 5.5-1.5 1.65 0 3.35.31 4.75 1.06.1.05.15.03.25.03.25 0 .5-.25.5-.5V6.5c-.6-.45-1.25-.75-2-1V19c-1.1-.35-2.3-.5-3.5-.5-1.7 0-4.15.65-5.5 1.5V6.5C10.55 5.4 8.45 5 6.5 5"/></svg></span> <a href="https://docs.github.com/en/copilot/how-tos/configure-custom-instructions/add-repository-instructions">GitHub Copilot Instructions</a></p>
+</div>
+<div class="tabbed-block">
+<p>Antigravity uses <code>.agents/rules</code> for rule configuration (the legacy
+<code>.agent/rules</code> path is still accepted for backward compatibility).</p>
+<p><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="m19 2-5 4.5v11l5-4.5zM6.5 5C4.55 5 2.45 5.4 1 6.5v14.66c0 .25.25.5.5.5.1 0 .15-.07.25-.07 1.35-.65 3.3-1.09 4.75-1.09 1.95 0 4.05.4 5.5 1.5 1.35-.85 3.8-1.5 5.5-1.5 1.65 0 3.35.31 4.75 1.06.1.05.15.03.25.03.25 0 .5-.25.5-.5V6.5c-.6-.45-1.25-.75-2-1V19c-1.1-.35-2.3-.5-3.5-.5-1.7 0-4.15.65-5.5 1.5V6.5C10.55 5.4 8.45 5 6.5 5"/></svg></span> <a href="https://codelabs.developers.google.com/getting-started-google-antigravity#8">Antigravity Instructions</a></p>
+</div>
+<div class="tabbed-block">
+<p>OpenCode uses <code>.opencode/skills</code> for skill configuration.</p>
+<p><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="m19 2-5 4.5v11l5-4.5zM6.5 5C4.55 5 2.45 5.4 1 6.5v14.66c0 .25.25.5.5.5.1 0 .15-.07.25-.07 1.35-.65 3.3-1.09 4.75-1.09 1.95 0 4.05.4 5.5 1.5 1.35-.85 3.8-1.5 5.5-1.5 1.65 0 3.35.31 4.75 1.06.1.05.15.03.25.03.25 0 .5-.25.5-.5V6.5c-.6-.45-1.25-.75-2-1V19c-1.1-.35-2.3-.5-3.5-.5-1.7 0-4.15.65-5.5 1.5V6.5C10.55 5.4 8.45 5 6.5 5"/></svg></span> <a href="https://opencode.ai/docs/skills/">OpenCode Skills Documentation</a></p>
+</div>
+<div class="tabbed-block">
+<p>OpenClaw uses <code>.openclaw/skills</code> for skill configuration.</p>
+<p><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="m19 2-5 4.5v11l5-4.5zM6.5 5C4.55 5 2.45 5.4 1 6.5v14.66c0 .25.25.5.5.5.1 0 .15-.07.25-.07 1.35-.65 3.3-1.09 4.75-1.09 1.95 0 4.05.4 5.5 1.5 1.35-.85 3.8-1.5 5.5-1.5 1.65 0 3.35.31 4.75 1.06.1.05.15.03.25.03.25 0 .5-.25.5-.5V6.5c-.6-.45-1.25-.75-2-1V19c-1.1-.35-2.3-.5-3.5-.5-1.7 0-4.15.65-5.5 1.5V6.5C10.55 5.4 8.45 5 6.5 5"/></svg></span> <a href="https://github.com/openclaw/openclaw">OpenClaw Documentation</a></p>
+</div>
+<div class="tabbed-block">
+<p>Hermes uses <code>.hermes/skills</code> for skill configuration.</p>
+<p><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="m19 2-5 4.5v11l5-4.5zM6.5 5C4.55 5 2.45 5.4 1 6.5v14.66c0 .25.25.5.5.5.1 0 .15-.07.25-.07 1.35-.65 3.3-1.09 4.75-1.09 1.95 0 4.05.4 5.5 1.5 1.35-.85 3.8-1.5 5.5-1.5 1.65 0 3.35.31 4.75 1.06.1.05.15.03.25.03.25 0 .5-.25.5-.5V6.5c-.6-.45-1.25-.75-2-1V19c-1.1-.35-2.3-.5-3.5-.5-1.7 0-4.15.65-5.5 1.5V6.5C10.55 5.4 8.45 5 6.5 5"/></svg></span> <a href="https://hermes-agent.nousresearch.com/docs/skills/">Hermes Skills Documentation</a></p>
+</div>
+</div>
+</div>
+<h2 id="installation">Installation</h2>
+<p>Not sure which route fits your situation? See <strong><a href="../install-paths/">Choosing an Install Path</a></strong> for a comparison of rule files, Agent Skills, MCP, and project- vs user-scope installs.</p>
+<div class="admonition info">
+<p class="admonition-title">Responsible CoSAI personas</p>
+<p>The installation routes below are typically implemented by the <strong>Application Developer</strong> persona (for file-based project and user installs), with <strong>Agentic Platform and Framework Providers</strong> supplying the activation behavior in tools like Claude Code, Codex, and OpenCode. <strong>AI System Governance</strong> becomes the owner once rules are rolled out org-wide through vendor dashboards. See <strong><a href="../personas/">CoSAI Personas</a></strong> for the full persona model and <strong><a href="../install-paths/#responsible-cosai-personas-per-install-route">Choosing an Install Path → Responsible CoSAI Personas Per Install Route</a></strong> for the per-route mapping.</p>
+</div>
+<p><img alt="CodeGuard install routes per tool" src="../images/codeguard-install-flowchart.svg" /></p>
+<h3 id="option-1-install-pre-built-bundles-recommended">Option 1: Install Pre-built Bundles (Recommended)</h3>
+<p>Select your AI coding tool and follow the instructions:</p>
+<div class="tabbed-set tabbed-alternate" data-tabs="2:10"><input checked="checked" id="__tabbed_2_1" name="__tabbed_2" type="radio" /><input id="__tabbed_2_2" name="__tabbed_2" type="radio" /><input id="__tabbed_2_3" name="__tabbed_2" type="radio" /><input id="__tabbed_2_4" name="__tabbed_2" type="radio" /><input id="__tabbed_2_5" name="__tabbed_2" type="radio" /><input id="__tabbed_2_6" name="__tabbed_2" type="radio" /><input id="__tabbed_2_7" name="__tabbed_2" type="radio" /><input id="__tabbed_2_8" name="__tabbed_2" type="radio" /><input id="__tabbed_2_9" name="__tabbed_2" type="radio" /><input id="__tabbed_2_10" name="__tabbed_2" type="radio" /><div class="tabbed-labels"><label for="__tabbed_2_1">Cursor</label><label for="__tabbed_2_2">Windsurf</label><label for="__tabbed_2_3">Devin</label><label for="__tabbed_2_4">GitHub Copilot</label><label for="__tabbed_2_5">Antigravity</label><label for="__tabbed_2_6">OpenCode</label><label for="__tabbed_2_7">Claude Code</label><label for="__tabbed_2_8">Codex</label><label for="__tabbed_2_9">OpenClaw</label><label for="__tabbed_2_10">Hermes</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
+<ol>
+<li><strong>Download</strong> <a href="https://github.com/cosai-oasis/project-codeguard/releases"><code>codeguard-cursor.zip</code></a> from the Releases page</li>
+<li><strong>Extract</strong> the ZIP file</li>
+<li>
+<p><strong>Copy</strong> the <code>.cursor/</code> directory to your project root:</p>
+<div class="highlight"><pre><span></span><code>cp<span class="w"> </span>-r<span class="w"> </span>.cursor/<span class="w"> </span>/path/to/your/project/
+</code></pre></div>
+</li>
+<li>
+<p><strong>Restart</strong> Cursor to load the rules and reviewer agent</p>
+</li>
+</ol>
+</div>
+<div class="tabbed-block">
+<ol>
+<li><strong>Download</strong> <a href="https://github.com/cosai-oasis/project-codeguard/releases"><code>codeguard-windsurf.zip</code></a> from the Releases page</li>
+<li><strong>Extract</strong> the ZIP file</li>
+<li>
+<p><strong>Copy</strong> the <code>.windsurf/</code> directory to your project root:</p>
+<div class="highlight"><pre><span></span><code>cp<span class="w"> </span>-r<span class="w"> </span>.windsurf/<span class="w"> </span>/path/to/your/project/
+</code></pre></div>
+</li>
+<li>
+<p><strong>Restart</strong> Windsurf to load the rules</p>
+</li>
+</ol>
+</div>
+<div class="tabbed-block">
+<ol>
+<li><strong>Download</strong> <a href="https://github.com/cosai-oasis/project-codeguard/releases"><code>codeguard-devin.zip</code></a> from the Releases page</li>
+<li><strong>Extract</strong> the ZIP file</li>
+<li>
+<p><strong>Copy</strong> the <code>.devin/</code> directory to your project root:</p>
+<div class="highlight"><pre><span></span><code>cp<span class="w"> </span>-r<span class="w"> </span>.devin/<span class="w"> </span>/path/to/your/project/
+</code></pre></div>
+</li>
+<li>
+<p><strong>Start or reload</strong> a Devin session so it discovers the CodeGuard skill</p>
+</li>
+</ol>
+</div>
+<div class="tabbed-block">
+<ol>
+<li><strong>Download</strong> <a href="https://github.com/cosai-oasis/project-codeguard/releases"><code>codeguard-copilot.zip</code></a> from the Releases page</li>
+<li><strong>Extract</strong> the ZIP file</li>
+<li>
+<p><strong>Copy</strong> the <code>.github/</code> directory to your project root:</p>
+<div class="highlight"><pre><span></span><code>cp<span class="w"> </span>-r<span class="w"> </span>.github/<span class="w"> </span>/path/to/your/project/
+</code></pre></div>
+</li>
+<li>
+<p><strong>Restart</strong> your IDE to load the instructions and reviewer agent</p>
+</li>
+</ol>
+</div>
+<div class="tabbed-block">
+<ol>
+<li><strong>Download</strong> <a href="https://github.com/cosai-oasis/project-codeguard/releases"><code>codeguard-antigravity.zip</code></a> from the Releases page</li>
+<li><strong>Extract</strong> the ZIP file</li>
+<li>
+<p><strong>Copy</strong> the <code>.agents/</code> directory to your project root:</p>
+<div class="highlight"><pre><span></span><code>cp<span class="w"> </span>-r<span class="w"> </span>.agents/<span class="w"> </span>/path/to/your/project/
+</code></pre></div>
+</li>
+<li>
+<p><strong>Restart</strong> Antigravity to load the rules</p>
+</li>
+</ol>
+<div class="admonition info">
+<p class="admonition-title">Migrating from <code>.agent/rules</code></p>
+<p>Earlier releases shipped to the legacy <code>.agent/rules</code> path.
+Antigravity now defaults to <code>.agents/rules</code> (the old path still
+works). If you have an existing <code>.agent/rules/</code> directory, delete
+it after extracting the new zip so you don't run duplicate rules.</p>
+</div>
+</div>
+<div class="tabbed-block">
+<p><strong>Option A: Skills (recommended)</strong></p>
+<p>Using skills is more context-efficient as only relevant rules are loaded per session based on the files you're working with.</p>
+<ol>
+<li><strong>Download</strong> <a href="https://github.com/cosai-oasis/project-codeguard/releases"><code>codeguard-opencode.zip</code></a> from the Releases page</li>
+<li><strong>Extract</strong> the ZIP file</li>
+<li>
+<p><strong>Copy</strong> the <code>.opencode/</code> directory to your project root:</p>
+<div class="highlight"><pre><span></span><code>cp<span class="w"> </span>-r<span class="w"> </span>.opencode/<span class="w"> </span>/path/to/your/project/
+</code></pre></div>
+</li>
+<li>
+<p><strong>Restart</strong> OpenCode to load the skill and reviewer agent</p>
+</li>
+</ol>
+<p><strong>Option B: Remote Instructions (zero-maintenance)</strong></p>
+<p>All rules loaded every session, but always up to date: no local files to maintain.</p>
+<p>Create an <a href="https://opencode.ai/docs/rules/#custom-instructions"><code>opencode.json</code></a> in your project root:</p>
+<details class="example">
+<summary>opencode.json with remote URLs</summary>
+<div class="highlight"><pre><span></span><code><span class="p">{</span>
+<span class="w">  </span><span class="nt">&quot;$schema&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;https://opencode.ai/config.json&quot;</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">&quot;instructions&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
+<span class="w">    </span><span class="s2">&quot;https://raw.githubusercontent.com/cosai-oasis/project-codeguard/main/sources/rules/core/codeguard-0-additional-cryptography.md&quot;</span><span class="p">,</span>
+<span class="w">    </span><span class="s2">&quot;https://raw.githubusercontent.com/cosai-oasis/project-codeguard/main/sources/rules/core/codeguard-0-api-web-services.md&quot;</span><span class="p">,</span>
+<span class="w">    </span><span class="s2">&quot;https://raw.githubusercontent.com/cosai-oasis/project-codeguard/main/sources/rules/core/codeguard-0-authentication-mfa.md&quot;</span><span class="p">,</span>
+<span class="w">    </span><span class="s2">&quot;https://raw.githubusercontent.com/cosai-oasis/project-codeguard/main/sources/rules/core/codeguard-0-authorization-access-control.md&quot;</span><span class="p">,</span>
+<span class="w">    </span><span class="s2">&quot;https://raw.githubusercontent.com/cosai-oasis/project-codeguard/main/sources/rules/core/codeguard-0-client-side-web-security.md&quot;</span><span class="p">,</span>
+<span class="w">    </span><span class="s2">&quot;https://raw.githubusercontent.com/cosai-oasis/project-codeguard/main/sources/rules/core/codeguard-0-cloud-orchestration-kubernetes.md&quot;</span><span class="p">,</span>
+<span class="w">    </span><span class="s2">&quot;https://raw.githubusercontent.com/cosai-oasis/project-codeguard/main/sources/rules/core/codeguard-0-data-storage.md&quot;</span><span class="p">,</span>
+<span class="w">    </span><span class="s2">&quot;https://raw.githubusercontent.com/cosai-oasis/project-codeguard/main/sources/rules/core/codeguard-0-devops-ci-cd-containers.md&quot;</span><span class="p">,</span>
+<span class="w">    </span><span class="s2">&quot;https://raw.githubusercontent.com/cosai-oasis/project-codeguard/main/sources/rules/core/codeguard-0-file-handling-and-uploads.md&quot;</span><span class="p">,</span>
+<span class="w">    </span><span class="s2">&quot;https://raw.githubusercontent.com/cosai-oasis/project-codeguard/main/sources/rules/core/codeguard-0-framework-and-languages.md&quot;</span><span class="p">,</span>
+<span class="w">    </span><span class="s2">&quot;https://raw.githubusercontent.com/cosai-oasis/project-codeguard/main/sources/rules/core/codeguard-0-iac-security.md&quot;</span><span class="p">,</span>
+<span class="w">    </span><span class="s2">&quot;https://raw.githubusercontent.com/cosai-oasis/project-codeguard/main/sources/rules/core/codeguard-0-input-validation-injection.md&quot;</span><span class="p">,</span>
+<span class="w">    </span><span class="s2">&quot;https://raw.githubusercontent.com/cosai-oasis/project-codeguard/main/sources/rules/core/codeguard-0-logging.md&quot;</span><span class="p">,</span>
+<span class="w">    </span><span class="s2">&quot;https://raw.githubusercontent.com/cosai-oasis/project-codeguard/main/sources/rules/core/codeguard-0-mcp-security.md&quot;</span><span class="p">,</span>
+<span class="w">    </span><span class="s2">&quot;https://raw.githubusercontent.com/cosai-oasis/project-codeguard/main/sources/rules/core/codeguard-0-mobile-apps.md&quot;</span><span class="p">,</span>
+<span class="w">    </span><span class="s2">&quot;https://raw.githubusercontent.com/cosai-oasis/project-codeguard/main/sources/rules/core/codeguard-0-privacy-data-protection.md&quot;</span><span class="p">,</span>
+<span class="w">    </span><span class="s2">&quot;https://raw.githubusercontent.com/cosai-oasis/project-codeguard/main/sources/rules/core/codeguard-0-safe-c-functions.md&quot;</span><span class="p">,</span>
+<span class="w">    </span><span class="s2">&quot;https://raw.githubusercontent.com/cosai-oasis/project-codeguard/main/sources/rules/core/codeguard-0-session-management-and-cookies.md&quot;</span><span class="p">,</span>
+<span class="w">    </span><span class="s2">&quot;https://raw.githubusercontent.com/cosai-oasis/project-codeguard/main/sources/rules/core/codeguard-0-supply-chain-security.md&quot;</span><span class="p">,</span>
+<span class="w">    </span><span class="s2">&quot;https://raw.githubusercontent.com/cosai-oasis/project-codeguard/main/sources/rules/core/codeguard-0-xml-and-serialization.md&quot;</span><span class="p">,</span>
+<span class="w">    </span><span class="s2">&quot;https://raw.githubusercontent.com/cosai-oasis/project-codeguard/main/sources/rules/core/codeguard-1-crypto-algorithms.md&quot;</span><span class="p">,</span>
+<span class="w">    </span><span class="s2">&quot;https://raw.githubusercontent.com/cosai-oasis/project-codeguard/main/sources/rules/core/codeguard-1-digital-certificates.md&quot;</span><span class="p">,</span>
+<span class="w">    </span><span class="s2">&quot;https://raw.githubusercontent.com/cosai-oasis/project-codeguard/main/sources/rules/core/codeguard-1-hardcoded-credentials.md&quot;</span>
+<span class="w">  </span><span class="p">]</span>
+<span class="p">}</span>
+</code></pre></div>
+</details>
+<div class="admonition info">
+<p class="admonition-title">Tradeoff</p>
+<p>The skills approach (Option A) uses glob-scoped rules so only relevant rules are loaded based on the files you're editing. Remote instructions load all 23 rules into every session regardless of language. Remote URLs point to the <code>main</code> branch -- pin to a release tag (e.g. <code>refs/tags/v1.3.0</code>) if you need a stable, auditable snapshot.</p>
+<p>Remote instructions do not install the reviewer agent. Use Option A if
+you want to invoke <code>@codeguard-reviewer</code>.</p>
+</div>
+</div>
+<div class="tabbed-block">
+<p>Claude Code uses a plugin system instead of manual file installation:</p>
+<ol>
+<li>
+<p><strong>Add</strong> the Project CodeGuard marketplace:</p>
+<div class="highlight"><pre><span></span><code>/plugin marketplace add cosai-oasis/project-codeguard
+</code></pre></div>
+</li>
+<li>
+<p><strong>Install</strong> the security plugin:</p>
+<div class="highlight"><pre><span></span><code>/plugin install codeguard-security@project-codeguard
+</code></pre></div>
+</li>
+<li>
+<p><strong>Reload plugins</strong> so Claude Code picks up the new skill:</p>
+<div class="highlight"><pre><span></span><code>/reload-plugins
+</code></pre></div>
+</li>
+<li>
+<p><strong>Verify</strong> the plugin is enabled from <code>/plugin</code> → <strong>Installed</strong>.</p>
+</li>
+</ol>
+<p>See the <a href="../claude-code-skill-plugin/">Claude Code Plugin documentation</a> for team setup, updates, and troubleshooting.</p>
+</div>
+<div class="tabbed-block">
+<p>OpenAI Codex uses <a href="https://agentskills.io/">agent skills</a> for task-specific instructions.</p>
+<div class="admonition warning">
+<p class="admonition-title">Prerequisites</p>
+<p>Make sure you're running the latest version of Codex before installing skills.</p>
+</div>
+<p><strong>Option A: Pre-built download (recommended)</strong></p>
+<ol>
+<li><strong>Download</strong> <a href="https://github.com/cosai-oasis/project-codeguard/releases"><code>codeguard-codex.zip</code></a> from the Releases page</li>
+<li><strong>Extract</strong> the ZIP file</li>
+<li>
+<p><strong>Copy</strong> the <code>.agents/</code> and <code>.codex/</code> directories to your project root
+   (<code>.agents/skills/</code> contains the CodeGuard skill, and <code>.codex/agents/</code>
+   contains the optional CodeGuard reviewer agent):</p>
+<div class="highlight"><pre><span></span><code>cp<span class="w"> </span>-r<span class="w"> </span>.agents/<span class="w"> </span>/path/to/your/project/
+cp<span class="w"> </span>-r<span class="w"> </span>.codex/<span class="w"> </span>/path/to/your/project/
+</code></pre></div>
+</li>
+<li>
+<p><strong>Restart</strong> Codex to load the skill and reviewer agent</p>
+</li>
+</ol>
+<div class="admonition info">
+<p class="admonition-title">Migrating from <code>.codex/skills/</code></p>
+<p>Earlier releases shipped the Codex skill to <code>.codex/skills/</code>,
+which is not one of Codex's documented discovery paths and was
+silently ignored. The skill now lives at
+<code>.agents/skills/codeguard/</code>. If you have an old
+<code>.codex/skills/</code> directory, delete it after installing the new
+zip to avoid stale files.</p>
+</div>
+<p><strong>Option B: Skill installer</strong></p>
+<div class="highlight"><pre><span></span><code>$skill-installer install from https://github.com/cosai-oasis/project-codeguard/tree/main/skills/codeguard
+</code></pre></div>
+<p>Once installed, invoke the skill with <code>$codeguard</code> or let Codex use it automatically when writing or reviewing code.</p>
+<p>The skill installer installs the skill only. To use the reviewer agent,
+copy <code>.codex/agents/</code> from the Codex release archive or a source build.</p>
+<div class="admonition info">
+<p class="admonition-title">Codex Skills Documentation</p>
+<p>For more information, see the <a href="https://developers.openai.com/codex/skills/">OpenAI Codex Skills documentation</a>.</p>
+</div>
+</div>
+<div class="tabbed-block">
+<p>OpenClaw uses the <a href="https://agentskills.io/">Agent Skills standard</a> for skill discovery.</p>
+<ol>
+<li><strong>Download</strong> <a href="https://github.com/cosai-oasis/project-codeguard/releases"><code>codeguard-openclaw.zip</code></a> from the Releases page</li>
+<li><strong>Extract</strong> the ZIP file</li>
+<li>
+<p><strong>Copy</strong> the <code>.openclaw/</code> directory to your project root:</p>
+<div class="highlight"><pre><span></span><code>cp<span class="w"> </span>-r<span class="w"> </span>.openclaw/<span class="w"> </span>/path/to/your/project/
+</code></pre></div>
+</li>
+<li>
+<p><strong>Start a new session</strong> in OpenClaw to load the rules</p>
+</li>
+</ol>
+</div>
+<div class="tabbed-block">
+<p>Hermes uses the <a href="https://agentskills.io/">Agent Skills standard</a> for skill discovery.</p>
+<ol>
+<li><strong>Download</strong> <a href="https://github.com/cosai-oasis/project-codeguard/releases"><code>codeguard-hermes.zip</code></a> from the Releases page</li>
+<li><strong>Extract</strong> the ZIP file</li>
+<li>
+<p><strong>Copy</strong> the <code>.hermes/</code> directory to your project root:</p>
+<div class="highlight"><pre><span></span><code>cp<span class="w"> </span>-r<span class="w"> </span>.hermes/<span class="w"> </span>/path/to/your/project/
+</code></pre></div>
+</li>
+<li>
+<p><strong>Start a new session</strong> in Hermes to load the rules</p>
+</li>
+</ol>
+</div>
+</div>
+</div>
+<p><strong>Using multiple tools?</strong> Download <a href="https://github.com/cosai-oasis/project-codeguard/releases"><code>codeguard-all.zip</code></a> for all formats in one archive.</p>
+<div class="admonition tip">
+<p class="admonition-title">Repository Level Installation</p>
+<p>Installing at the repository level ensures all team members benefit from the security rules automatically when they clone the repository.</p>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Hidden Files on macOS/Linux</p>
+<p>On macOS/Linux, you may need to show hidden files:</p>
+<ul>
+<li><strong>macOS Finder</strong>: Press <span class="keys"><kbd class="key-command">Cmd</kbd><span>+</span><kbd class="key-shift">Shift</kbd><span>+</span><kbd class="key-period">.</kbd></span> to toggle visibility</li>
+<li><strong>Linux</strong>: Use <code>ls -la</code> in terminal or enable "Show Hidden Files" in your file manager</li>
+</ul>
+</div>
+<h3 id="option-2-build-from-source">Option 2: Build from Source</h3>
+<p>This route is typically driven by the <strong>Application Developer</strong> persona for local customization, or the <strong>AI Platform Provider</strong> persona when a platform team generates and redistributes CodeGuard artifacts internally.</p>
+<p>If you want to customize or contribute to the rules:</p>
+<div class="highlight"><pre><span></span><code><span class="c1"># Clone the repository</span>
+git<span class="w"> </span>clone<span class="w"> </span>https://github.com/cosai-oasis/project-codeguard.git
+<span class="nb">cd</span><span class="w"> </span>project-codeguard
+
+<span class="c1"># Install dependencies (requires Python 3.11+)</span>
+uv<span class="w"> </span>sync
+
+<span class="c1"># Validate rules</span>
+uv<span class="w"> </span>run<span class="w"> </span>python<span class="w"> </span>src/validate_unified_rules.py<span class="w"> </span>sources/
+
+<span class="c1"># Convert rules (default: core rules only)</span>
+uv<span class="w"> </span>run<span class="w"> </span>python<span class="w"> </span>src/convert_to_ide_formats.py
+
+<span class="c1"># Or include all rules (core + owasp supplementary)</span>
+uv<span class="w"> </span>run<span class="w"> </span>python<span class="w"> </span>src/convert_to_ide_formats.py<span class="w"> </span>--source<span class="w"> </span>core<span class="w"> </span>owasp
+
+<span class="c1"># Copy the generated bundle directories to your project</span>
+cp<span class="w"> </span>-r<span class="w"> </span>dist/.cursor/<span class="w"> </span>/path/to/your/project/
+cp<span class="w"> </span>-r<span class="w"> </span>dist/.windsurf/<span class="w"> </span>/path/to/your/project/
+cp<span class="w"> </span>-r<span class="w"> </span>dist/.devin/<span class="w"> </span>/path/to/your/project/<span class="w"> </span><span class="c1"># Devin skill</span>
+cp<span class="w"> </span>-r<span class="w"> </span>dist/.github/<span class="w"> </span>/path/to/your/project/
+cp<span class="w"> </span>-r<span class="w"> </span>dist/.agents/<span class="w"> </span>/path/to/your/project/<span class="w">   </span><span class="c1"># Antigravity rules + Codex skill</span>
+cp<span class="w"> </span>-r<span class="w"> </span>dist/.codex/<span class="w"> </span>/path/to/your/project/<span class="w">    </span><span class="c1"># Codex reviewer agent</span>
+cp<span class="w"> </span>-r<span class="w"> </span>dist/.opencode/<span class="w"> </span>/path/to/your/project/
+cp<span class="w"> </span>-r<span class="w"> </span>dist/.openclaw/<span class="w"> </span>/path/to/your/project/
+cp<span class="w"> </span>-r<span class="w"> </span>dist/.hermes/<span class="w"> </span>/path/to/your/project/
+</code></pre></div>
+<h2 id="core-vs-owasp-sources">Core vs OWASP Sources</h2>
+<p>Project CodeGuard has two source rule sets:</p>
+<ul>
+<li><code>sources/rules/core/</code>: Official Project CodeGuard rules. These are the main rules packaged in releases and enabled by default.</li>
+<li><code>sources/rules/owasp/</code>: Supplementary rules originally derived from OWASP guidance. These are optional and are not enabled by default.</li>
+</ul>
+<p>Use OWASP supplementary rules when you explicitly want broader coverage, such as deeper security reviews or reference-driven review workflows.</p>
+<h2 id="rule-types-always-on-vs-glob-scoped">Rule Types: Always-On vs Glob-Scoped</h2>
+<p>Project CodeGuard supports two rule activation types:</p>
+<ul>
+<li><strong>Always-on rules</strong>: Apply to all files in the project. These rules are for baseline safeguards that should always be in context.</li>
+<li><strong>Glob-scoped rules</strong>: Apply only to matching file patterns (derived from <code>languages</code> in source frontmatter). These rules are for language- or framework-specific guidance.</li>
+</ul>
+<h2 id="keeping-vendored-rules-updated-optional">Keeping Vendored Rules Updated (Optional)</h2>
+<p>Typically owned by the <strong>Application Developer</strong> persona (repository maintainer) with <strong>AI System Governance</strong> reviewing and merging update PRs to keep policy current.</p>
+<p>For GitHub repositories that copy CodeGuard files directly into source control, you can optionally automate rule updates with a workflow that runs monthly and creates PRs when new versions are available. This is not needed for install paths that already update through a plugin, marketplace, or remote instructions.</p>
+<h3 id="supported-formats">Supported Formats</h3>
+<ul>
+<li>Cursor (<code>.cursor/rules/</code>)</li>
+<li>Windsurf (<code>.windsurf/rules/</code>)</li>
+<li>Devin (<code>.devin/skills/codeguard/rules/</code>)</li>
+<li>GitHub Copilot (<code>.github/instructions/</code>)</li>
+<li>Antigravity (<code>.agents/rules/</code>)</li>
+<li>OpenCode (<code>.opencode/skills/codeguard/rules/</code>)</li>
+<li>Codex (<code>.agents/skills/codeguard/rules/</code>)</li>
+<li>OpenClaw (<code>.openclaw/skills/codeguard/rules/</code>)</li>
+<li>Hermes (<code>.hermes/skills/codeguard/rules/</code>)</li>
+</ul>
+<h3 id="setup">Setup</h3>
+<ol>
+<li>Download <a href="https://raw.githubusercontent.com/cosai-oasis/project-codeguard/main/.github/workflows/update-codeguard-rules.yml"><code>update-codeguard-rules.yml</code></a></li>
+<li>Save to <code>.github/workflows/update-codeguard-rules.yml</code> in your repository</li>
+<li>Commit and push</li>
+</ol>
+<p>The workflow runs monthly (1st at 9:00 UTC) and can also be triggered manually from the <strong>Actions</strong> tab.</p>
+<p>This workflow refreshes CodeGuard rule files. For Agent Skill bundles, it also
+refreshes <code>SKILL.md</code> so the skill instructions and version metadata stay in sync.
+To update agents or other generated support files, re-download the release
+archive for your tool.</p>
+<h2 id="verify-installation">Verify Installation</h2>
+<p>After installation, your project structure should include the directories for
+the tool or tools you selected:</p>
+<div class="highlight"><pre><span></span><code>your-project/
+├── .agents/                           # cross-tool: Antigravity + Codex
+│   ├── rules/                         # Antigravity rules
+│   └── skills/
+│       └── codeguard/                 # Codex skill (SKILL.md + rules/)
+├── .codex/
+│   └── agents/
+│       └── codeguard-reviewer.toml
+├── .cursor/
+│   ├── agents/
+│   │   └── codeguard-reviewer.md
+│   └── rules/
+├── .github/
+│   ├── agents/
+│   │   └── codeguard-reviewer.agent.md
+│   └── instructions/
+├── .hermes/
+│   └── skills/
+│       └── codeguard/
+├── .openclaw/
+│   └── skills/
+│       └── codeguard/
+├── .opencode/
+│   ├── agents/
+│   │   └── codeguard-reviewer.md
+│   └── skills/
+│       └── codeguard/
+├── .windsurf/
+│   └── rules/
+├── .devin/
+│   └── skills/
+│       └── codeguard/
+└── ... (your project files)
+</code></pre></div>
+<h2 id="whats-included">What's Included</h2>
+<p>The security rules cover essential areas:</p>
+<h3 id="core-security-rules">Core Security Rules</h3>
+<ul>
+<li><strong>🔐 Cryptography</strong>: Safe algorithms, secure key management, TLS configuration</li>
+<li><strong>🛡️ Input Validation</strong>: SQL injection, XSS prevention, command injection defense</li>
+<li><strong>🔑 Authentication</strong>: MFA, OAuth/OIDC, password security, session management</li>
+<li><strong>⚡ Authorization</strong>: RBAC/ABAC, access control, privilege escalation prevention</li>
+</ul>
+<h3 id="platform-specific-rules">Platform-Specific Rules</h3>
+<ul>
+<li><strong>📱 Mobile Apps</strong>: iOS/Android security, secure storage, transport security</li>
+<li><strong>🌐 API Security</strong>: REST/GraphQL/SOAP security, rate limiting, SSRF prevention</li>
+<li><strong>☁️ Cloud &amp; Containers</strong>: Docker/Kubernetes hardening, IaC security</li>
+<li><strong>🗄️ Data Storage</strong>: Database security, encryption, backup protection</li>
+</ul>
+<h3 id="devops-supply-chain">DevOps &amp; Supply Chain</h3>
+<ul>
+<li><strong>📦 Dependencies</strong>: Supply chain security, SBOM, vulnerability management</li>
+<li><strong>🔄 CI/CD</strong>: Pipeline security, artifact signing, secrets management</li>
+<li><strong>📝 Logging</strong>: Secure logging, monitoring, privacy-aware telemetry</li>
+</ul>
+<h2 id="testing-the-integration">Testing the Integration</h2>
+<p>To verify the rules are working:</p>
+<ol>
+<li><strong>Open your IDE</strong> with the Project CodeGuard rules installed</li>
+<li><strong>Start a new file</strong> in a supported language (Python, JavaScript, Java, C/C++, etc.)</li>
+<li><strong>Ask your AI assistant</strong> to generate code that might have security implications:</li>
+<li>"Create a function to hash a password"</li>
+<li>"Write code to connect to a database"</li>
+<li>
+<p>"Generate an API endpoint with authentication"</p>
+</li>
+<li>
+<p><strong>Observe the output</strong> - The AI should automatically apply security best practices:</p>
+</li>
+<li>Using strong cryptographic algorithms (bcrypt/Argon2 for passwords)</li>
+<li>Parameterized queries to prevent SQL injection</li>
+<li>Proper authentication/authorization checks</li>
+</ol>
+<h2 id="next-steps">Next Steps</h2>
+<ul>
+<li><strong>Review Rules</strong>: Explore the security rules in your IDE's rules directory</li>
+<li><strong>Test Integration</strong>: Generate some code and see the security guidance in action</li>
+<li><strong>Share Feedback</strong>: Help us improve by <a href="https://github.com/cosai-oasis/project-codeguard/issues">opening an issue</a></li>
+<li><strong>Contribute</strong>: See <a href="https://github.com/cosai-oasis/project-codeguard/blob/main/CONTRIBUTING.md">CONTRIBUTING.md</a> to contribute new rules or improvements</li>
+</ul>
+<div class="admonition success">
+<p class="admonition-title">You're Ready!</p>
+<p>Project CodeGuard is now protecting your development workflow. The security rules will automatically guide AI assistants to generate more secure code.</p>
+</div>
+<h2 id="troubleshooting">Troubleshooting</h2>
+<h3 id="rules-not-working">Rules Not Working</h3>
+<p>If the AI assistant doesn't seem to follow the rules:</p>
+<ol>
+<li><strong>Restart your IDE</strong> to ensure rules are loaded</li>
+<li><strong>Check file location</strong> - Ensure rules are in the correct directory for your IDE</li>
+<li><strong>Verify file format</strong> - Rules should be markdown files</li>
+<li><strong>Test with explicit request</strong> - Ask the AI directly: "Follow the security rules when generating this code"</li>
+</ol>
+<h3 id="performance-impact">Performance Impact</h3>
+<p>The rules have minimal performance impact, but if you experience issues:</p>
+<ul>
+<li><strong>Reduce rule count</strong>: Start with core rules (cryptography, input validation, authentication)</li>
+<li><strong>Combine rules</strong>: Merge related rules into fewer files</li>
+<li><strong>Report issues</strong>: Let us know via <a href="https://github.com/cosai-oasis/project-codeguard/issues">GitHub Issues</a></li>
+</ul>
+<h2 id="getting-help">Getting Help</h2>
+<ul>
+<li><strong>Documentation</strong>: You're reading it! Check the <a href="../faq/">FAQ</a> for common questions</li>
+<li><strong>GitHub Issues</strong>: <a href="https://github.com/cosai-oasis/project-codeguard/issues">Report bugs or ask questions</a></li>
+<li><strong>Discussions</strong>: <a href="https://github.com/cosai-oasis/project-codeguard/discussions">Join the community discussion</a></li>
+</ul>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+  <script>var tabs=__md_get("__tabs");if(Array.isArray(tabs))e:for(var set of document.querySelectorAll(".tabbed-set")){var labels=set.querySelector(".tabbed-labels");for(var tab of tabs)for(var label of labels.getElementsByTagName("label"))if(label.innerText.trim()===tab){var input=document.getElementById(label.htmlFor);input.checked=!0;continue e}}</script>
+
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"/></svg>
+  Back to top
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+    
+      
+      <nav class="md-footer__inner md-grid" aria-label="Footer" >
+        
+          
+          <a href=".." class="md-footer__link md-footer__link--prev" aria-label="Previous: Home">
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+            </div>
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Previous
+              </span>
+              <div class="md-ellipsis">
+                Home
+              </div>
+            </div>
+          </a>
+        
+        
+          
+          <a href="../install-paths/" class="md-footer__link md-footer__link--next" aria-label="Next: Choosing an Install Path">
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Next
+              </span>
+              <div class="md-ellipsis">
+                Choosing an Install Path
+              </div>
+            </div>
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11z"/></svg>
+            </div>
+          </a>
+        
+      </nav>
+    
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "..", "features": ["navigation.expand", "navigation.footer", "navigation.instant", "navigation.sections", "navigation.top", "search.highlight", "search.suggest", "content.code.copy", "content.code.select", "content.tabs.link", "content.action.edit"], "search": "../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+    
+    
+      <script src="../assets/javascripts/bundle.d7400e89.min.js"></script>
+      
+    
+  </body>
+</html>
